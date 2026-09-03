@@ -1,0 +1,25 @@
+/* Estilos customizados da interface de Agendamento */
+.flatpickr-calendar {
+  margin: 0 auto;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+}
+
+.flatpickr-day.selected, 
+.flatpickr-day.startRange, 
+.flatpickr-day.endRange {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+}
+
+.flatpickr-day:hover {
+  background: #dbeafe !important;
+}
+
+.flatpickr-day.disabled, 
+.flatpickr-day.disabled:hover {
+  color: #cbd5e1 !important;
+  background: transparent !important;
+  cursor: not-allowed !important;
+}

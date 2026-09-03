@@ -1,0 +1,19 @@
+## .NET Ignore
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+*.user
+*.userosscache
+*.sln.docstates
+.vscode/
+.idea/
+
+## Arquivos com Credenciais e Dados Sensíveis
+appsettings.json
+appsettings.*.json
+!appsettings.example.json
+
+## OS
+.DS_Store
+Thumbs.db
