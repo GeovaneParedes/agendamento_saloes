@@ -1,6 +1,10 @@
+using System.Collections.ObjectModel;
+
 namespace AgendamentoApp.Models;
 
 public static class CategoriasReuniao
 {
-    public static readonly string[] Todas = ["Confidencial", "Ancião", "Treinamento", "Troca / Visita"];
+    private static readonly string[] CategoriasInternas = ["Confidencial", "Ancião", "Treinamento", "Troca / Visita"];
+
+    public static readonly ReadOnlyCollection<string> Todas = Array.AsReadOnly(CategoriasInternas);
 }
