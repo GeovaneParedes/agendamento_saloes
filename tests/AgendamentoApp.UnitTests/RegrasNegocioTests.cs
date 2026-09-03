@@ -57,11 +57,8 @@ public class RegrasNegocioTests
     [InlineData("", false)]
     public void CategoriasReuniao_DevemSerValidas(string categoria, bool esperado)
     {
-        // Arrange
-        var categoriasPermitidas = new[] { "Confidencial", "Ancião", "Treinamento", "Troca / Visita" };
-
         // Act
-        var contem = categoriasPermitidas.Contains(categoria);
+        var contem = CategoriasReuniao.Todas.Contains(categoria);
 
         // Assert
         contem.Should().Be(esperado);

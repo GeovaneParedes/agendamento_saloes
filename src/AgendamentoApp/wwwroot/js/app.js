@@ -5,11 +5,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const containerData = document.getElementById('containerData');
   const inputData = document.getElementById('inputData');
   const formAgendamento = document.getElementById('formAgendamento');
+  const selectCategoria = document.getElementById('selectCategoria');
   const btnSubmit = document.getElementById('btnSubmit');
   const mensagemFeedback = document.getElementById('mensagemFeedback');
 
   let fpInstance = null;
   let datasOcupadas = [];
+
+  async function carregarCategorias() {
+    try {
+      const res = await fetch('/api/categorias');
+      if (!res.ok) throw new Error('Falha ao buscar categorias');
+
+      const categorias = await res.json();
+      categorias.forEach((categoria) => {
+        const option = document.createElement('option');
+        option.value = categoria;
+        option.textContent = categoria;
+        selectCategoria.appendChild(option);
+      });
+    } catch (err) {
+      console.warn('Não foi possível carregar categorias:', err);
+      exibirFeedback('error', 'Não foi possível carregar as categorias de reunião. Recarregue a página.');
+      selectCategoria.disabled = true;
+    }
+  }
 
   // 1. Inicializa o Flatpickr com as regras de negócio de cada salão
   function initFlatpickr(salao, ocupadas = []) {
@@ -167,4 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return dataStr;
   }
+
+  carregarCategorias();
 });

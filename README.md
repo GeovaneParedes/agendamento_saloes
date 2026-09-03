@@ -53,7 +53,8 @@ O projeto adota princípios rigorosos de **Clean Architecture**, **SOLID**, **KI
 │                                                                                                 │
 │  ┌─────────────────────────┐               ┌─────────────────────────────────────────────────┐  │
 │  │   wwwroot (Frontend)    │               │            Presentation / API Endpoints         │  │
-│  │  - index.html           │ ──(HTTP/JSON)─► - GET  /api/agendamentos/ocupados               │  │
+│  │  - index.html           │ ──(HTTP/JSON)─► - GET  /api/categorias                          │  │
+│  │                         │               │ - GET  /api/agendamentos/ocupados               │  │
 │  │  - css/style.css        │               │ - POST /api/agendamentos                        │  │
 │  │  - js/app.js            │               │ - GET  /health                                  │  │
 │  └─────────────────────────┘               └────────────────────────┬────────────────────────┘  │
@@ -134,7 +135,11 @@ Verifica a saúde do serviço.
 Retorna a lista de datas indisponíveis para o salão solicitado.
 * **Resposta `200 OK`:** `["2026-09-07", "2026-09-14", "2026-09-28"]`
 
-### 3. `POST /api/agendamentos`
+### 3. `GET /api/categorias`
+Retorna a lista centralizada de categorias de reunião permitidas.
+* **Resposta `200 OK`:** `["Confidencial", "Ancião", "Treinamento", "Troca / Visita"]`
+
+### 4. `POST /api/agendamentos`
 Registra uma nova reserva e dispara os e-mails de confirmação.
 * **Payload:**
 ```json
