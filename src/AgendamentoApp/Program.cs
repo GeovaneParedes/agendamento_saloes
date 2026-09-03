@@ -41,6 +41,8 @@ app.MapGet("/api/agendamentos/ocupados", async ([FromQuery] string salao, Databa
     return Results.Ok(datasOcupadas);
 });
 
+app.MapGet("/api/categorias", () => Results.Ok(CategoriasReuniao.Todas));
+
 // 2. Registrar novo agendamento
 app.MapPost("/api/agendamentos", async ([FromBody] Agendamento agendamento, DatabaseService db, EmailService email, ILogger<Program> logger) =>
 {
@@ -64,8 +66,7 @@ app.MapPost("/api/agendamentos", async ([FromBody] Agendamento agendamento, Data
     }
 
     // Validação de categorias permitidas
-    var categoriasValidas = new[] { "Confidencial", "Ancião", "Treinamento", "Troca / Visita" };
-    if (!categoriasValidas.Contains(agendamento.Categoria))
+    if (!CategoriasReuniao.Todas.Contains(agendamento.Categoria))
     {
         return Results.BadRequest(new { erro = "Categoria de reunião inválida." });
     }
