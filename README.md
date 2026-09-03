@@ -82,7 +82,7 @@ O projeto adota princípios rigorosos de **Clean Architecture**, **SOLID**, **KI
 | **Salão Marques Herval** | Apenas Segunda-feira | Terça a Domingo são desabilitados automaticamente. |
 
 * **Bloqueio Dinâmico:** Datas que já possuem agendamento confirmado no banco são marcadas como indisponíveis.
-* **Categorias Permitidas:** `Confidencial`, `Ancião` e `Treinamento`.
+* **Categorias Permitidas:** `Confidencial`, `Ancião`, `Treinamento` e `Troca / Visita`.
 * **Idempotência:** A restrição `UNIQUE (salao, data_reserva)` impede qualquer colisão de concorrência.
 
 ---

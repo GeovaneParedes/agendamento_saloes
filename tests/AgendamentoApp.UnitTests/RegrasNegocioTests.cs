@@ -52,12 +52,13 @@ public class RegrasNegocioTests
     [InlineData("Confidencial", true)]
     [InlineData("Ancião", true)]
     [InlineData("Treinamento", true)]
+    [InlineData("Troca / Visita", true)]
     [InlineData("OutraCategoria", false)]
     [InlineData("", false)]
     public void CategoriasReuniao_DevemSerValidas(string categoria, bool esperado)
     {
         // Arrange
-        var categoriasPermitidas = new[] { "Confidencial", "Ancião", "Treinamento" };
+        var categoriasPermitidas = new[] { "Confidencial", "Ancião", "Treinamento", "Troca / Visita" };
 
         // Act
         var contem = categoriasPermitidas.Contains(categoria);

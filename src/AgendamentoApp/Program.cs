@@ -64,7 +64,7 @@ app.MapPost("/api/agendamentos", async ([FromBody] Agendamento agendamento, Data
     }
 
     // Validação de categorias permitidas
-    var categoriasValidas = new[] { "Confidencial", "Ancião", "Treinamento" };
+    var categoriasValidas = new[] { "Confidencial", "Ancião", "Treinamento", "Troca / Visita" };
     if (!categoriasValidas.Contains(agendamento.Categoria))
     {
         return Results.BadRequest(new { erro = "Categoria de reunião inválida." });
